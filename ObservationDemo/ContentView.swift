@@ -8,12 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    var wordDb = ["Potato", "Cat", "Sunshine", "Raindrop"]
+    @State var currentWord = "Cactus"
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        
+        VStack(spacing: 20) {
+            Text(currentWord)
+            
+            Button("Randomize") {
+                currentWord = wordDb[Int.random(in: wordDb.indices)]
+            }
         }
         .padding()
     }
